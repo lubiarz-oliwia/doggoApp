@@ -1,0 +1,43 @@
+/* https://coolors.co/cb997e-ddbea9-ffe8d6-b7b7a4-a5a58d-6b705c */
+
+.container {
+  min-height: 100vh;
+  padding: 0 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #cad2c5;
+}
+
+.header {
+  text-align: center;
+  padding: 30px 0 0 0;
+  color: #2f3e46;
+}
+
+.breed-list {
+  display: flex;
+  text-align: center;
+  list-style: none;
+  margin: 30px 0;
+  border: solid 1px #a3b18a;
+  border-radius: 13px;
+  background-color: #a3b18a;
+}
+
+.breed-list__ul{
+  list-style: none;
+  padding-left: 0;
+}
+
+.breed-list__img {
+  width: 500px;
+  height: auto;
+  border-radius: 13px 13px 0 0;
+}
+
+.breed-list__name {
+  font-size: 20px;
+  color: #344e41;
+}
