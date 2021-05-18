@@ -1,36 +1,51 @@
+import { Fragment } from 'react';
 import Link from 'next/link';
 
 import axios from '../helpers/axios';
 
 import styles from '../styles/Home.module.css'
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function Home({ isRequestedFailed, breeds }) {
   if (isRequestedFailed) {
     return <p>Oops something went wrong...</p>
   }
 
-  const breedsElements = breeds.map(breed => <BreedElement key={breed.id} {...breed} />);
+  const breedsElements = breeds.map((breed) => {
+    return (
+      <Col lg={4} md={6}>
+        <BreedElement
+          key={breed.id}
+          {...breed}
+        />
+      </Col>
+    )
+  });
 
   return (
     <div className={styles.container}>
       <h1 className={styles.header}>Encyclopedia of Dog Breeds</h1>
-      <ul className={styles['breed-list__ul']}>
+      {/* <div className={styles['breed-list__ul']}> */}
+      <Row className="justify-content-md-center">
         {breedsElements}
-      </ul>
+      </Row>
+      {/* </div> */}
     </div>
   );
 }
 
 function BreedElement({ id, name, url }) {
   return (
-    <li className={styles['breed-list']}>
-      <Link href={`/breeds/${id}`}>
+    <div className={styles['breed-card']}>
+      <Link href={`/breed/${id}`}>
         <a>
-          <img src={url} alt={`photo of ${name}`} className={styles['breed-list__img']} />
-          <p className={styles['breed-list__name']}> {name} </p>
+          <img src={url} alt={`photo of ${name}`} className={styles['breed-card__img']} />
+          <p className={styles['breed-card__name']}> {name} </p>
         </a>
       </Link>
-    </li>
+    </div>
   )
 }
 
